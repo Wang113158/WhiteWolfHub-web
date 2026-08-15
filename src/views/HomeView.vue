@@ -30,7 +30,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="hubname">My Hub</h1>
+  <h1 class="hubname">群中屌图</h1>
   <Waterfall :list="imageList" :width="320" :gutter="16">
     <template #default="{ item }">
       <div class="image-wrapper">
