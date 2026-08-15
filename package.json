@@ -1,0 +1,30 @@
+{
+  "name": "hubweb-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "getphotos": "shx rm -rf temp_repo public/imgs && (git clone --depth 1 https://github.com/YOUR-USERNAME/YOUR-HUB-REPO temp_repo && shx mkdir -p public/imgs && shx cp -r temp_repo/images/* public/imgs/ && shx rm -rf temp_repo) || shx mkdir -p public/imgs",
+    "generate-list": "node generateImageList.cjs",
+    "dev": "npm run getphotos && npm run generate-list && vite",
+    "prebuild": "npm run getphotos && npm run generate-list",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run type-check && npm run build"
+  },
+  "dependencies": {
+    "vue": "^3.5.0",
+    "vue-waterfall-plugin-next": "^2.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "prettier": "^3.5.0",
+    "shx": "^0.4.0",
+    "typescript": "~5.7.0",
+    "vite": "^6.2.0",
+    "vue-tsc": "^2.2.0"
+  }
+}
